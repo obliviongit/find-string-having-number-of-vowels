@@ -1,0 +1,38 @@
+public class Main {
+    public static void main(String[] args) {
+        
+        String[] strings = {"Sunshine", "Umbrella", "Major", "Resourceful"};
+
+        
+        String mostVowelsString = findStringWithMostVowels(strings);
+
+        
+        System.out.println("String with most vowels: " + mostVowelsString);
+    }
+
+    
+    public static int countVowels(String str) {
+        int count = 0;
+        String vowels = "aeiouAEIOU";
+        for (char c : str.toCharArray()) {
+            if (vowels.indexOf(c) != -1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    
+    public static String findStringWithMostVowels(String[] strings) {
+        String result = "";
+        int maxVowels = 0;
+        for (String str : strings) {
+            int numVowels = countVowels(str);
+            if (numVowels > maxVowels) {
+                maxVowels = numVowels;
+                result = str;
+            }
+        }
+        return result;
+    }
+}
